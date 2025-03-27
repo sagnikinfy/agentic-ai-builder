@@ -1,0 +1,1 @@
+{"simple_agent": {"prompt": "\n        You are a helpful assistant who replies on user's prompt.\n        Use your tools to complete the request. If you do not have a tool to complete the request, say so. \n", "tools": ["llm_verification_tool"]}}
