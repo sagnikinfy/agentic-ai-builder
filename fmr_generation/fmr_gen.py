@@ -179,7 +179,7 @@ relevancy_parser = StrOutputParser(pydantic_object=RelevancySchemaMessage)
 
 def fetch_cases_data(cn):
     query = f"""
-            select * from `topaz-poc-2024.agents_casedata.rag_table` where cn in unnest({cn}); 
+            select * from `table` where cn in unnest({cn}); 
     """
     
     res = client_bq.query(query).result().to_dataframe()
