@@ -3,8 +3,8 @@ from vertexai.preview.generative_models import GenerativeModel, Part, FinishReas
 import vertexai.preview.generative_models as generative_models
 from google.oauth2 import service_account
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)  
 vertexai.init(project=llm_project, location="us-central1", credentials=creds_llm)
 

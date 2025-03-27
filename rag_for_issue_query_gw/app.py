@@ -18,12 +18,12 @@ nest_asyncio.apply()
 
 app = Flask(__name__)
 CORS(app)
-app.config['SECRET_KEY'] = 'secret-rag'
-host = "10.128.0.33:5432"
-driver = "asyncpg"
-user = "postgres"
-password = "mpostsagnik76542gres"
-db = "embd"
+app.config['SECRET_KEY'] = ''
+host = ""
+driver = ""
+user = ""
+password = ""
+db = ""
 
 
 prompt = """---Role---
@@ -41,7 +41,7 @@ Output:
 
 
 def extract_data():
-    path = "email/GWS cases - results-20250304-172224.pdf"
+    path = ""
     data = pdf_read(path)
     #print(data[:40])
     def encode_string_by_tiktoken(content: str, model_name: str = "gpt-4o"):

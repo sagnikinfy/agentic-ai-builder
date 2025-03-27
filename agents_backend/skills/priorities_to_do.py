@@ -10,8 +10,8 @@ safety_settings = {
     HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
 }
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 
 llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project, 
@@ -29,13 +29,13 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 def fetch_gvc_data(ldap: str) -> str:
     creds_bq = service_account.Credentials.from_service_account_file(
-                "infy_auto.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
 
-    client_bq = bigquery.Client(credentials = creds_bq, project = "upheld-caldron-411606")
+    client_bq = bigquery.Client(credentials = creds_bq, project = "xxxxx")
     query = f"""
-        select case_number, start_time,  gvc_link from `upheld-caldron-411606.callback.gcp_callback_status` 
+        select case_number, start_time,  gvc_link from `table` 
         where owner_ldap = '{ldap}' and comment = '#tsr_confirmed' and status = 'open' and date(start_time) >= current_date() order by start_time; 
     """
     result = client_bq.query(query).result().to_dataframe()
@@ -49,11 +49,11 @@ def fetch_gvc_data(ldap: str) -> str:
 
 def fetch_negative_sentiment_cases(ldap: str) -> str:
     creds_bq = service_account.Credentials.from_service_account_file(
-                "apigee.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
 
-    client = bigquery.Client(credentials = creds_bq, project = "apigee-infosys")
+    client = bigquery.Client(credentials = creds_bq, project = "xxxxx")
     query = f"""
         select CaseNumber, justification from `apigee-infosys.gcp_sentiment.RCA_Sentiment_Summary` where Sentiment_description = 'negative' 
         and Status = 'In Progress Google Support' limit 5; 

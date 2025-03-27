@@ -17,14 +17,14 @@ nest_asyncio.apply()
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'secret'
-host = "10.128.0.33:5432"
+host = ""
 driver = "asyncpg"
-user = "postgres"
-password = "mpostsagnik76542gres"
-db = "embd"
-collection = "collection_sim"
-sum_key = "apigee.json"
-sum_proj = "apigee-infosys"
+user = ""
+password = ""
+db = ""
+collection = ""
+sum_key = "xxx.json"
+sum_proj = "xxxxx"
 embeddings = Embeddings()
 
 creds_bq = service_account.Credentials.from_service_account_file(

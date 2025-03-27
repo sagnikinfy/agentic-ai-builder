@@ -26,10 +26,10 @@ ConditionLambda = Callable[[Data], bool]
 logger = getLogger("nano-vectordb")
 
 creds_bq = service_account.Credentials.from_service_account_file(
-                "apigee.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
-client = storage.Client(credentials = creds_bq, project = "apigee-infosys")
+client = storage.Client(credentials = creds_bq, project = "xxxxx")
 
 
 def array_to_buffer_string(array: np.ndarray) -> str:

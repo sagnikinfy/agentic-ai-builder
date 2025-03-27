@@ -6,11 +6,11 @@ import glob
 from google.cloud import bigquery
 import json
 
-project = "apigee-infosys"
-key_file = "apigee.json"
-dataset = "metrics"
-table = "load_job_history"
-rca_bucket = "rca_rag"
+project = "xxxxx"
+key_file = "xxx.json"
+dataset = "dataset"
+table = "table"
+rca_bucket = "bucket"
 
 creds = service_account.Credentials.from_service_account_file(key_file)
 storage_client = storage.Client(credentials = creds, project = project)

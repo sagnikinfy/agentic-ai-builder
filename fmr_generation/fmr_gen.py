@@ -9,8 +9,8 @@ from datetime import datetime
 import re
 import json
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)  
 vertexai.init(project=llm_project, location="us-central1", credentials=creds_llm)
 
@@ -46,11 +46,11 @@ def generate(msgs):
     return r
 
 creds_bq = service_account.Credentials.from_service_account_file(
-                "topaz-poc-2024-new.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
 
-client_bq = bigquery.Client(credentials = creds_bq, project = "topaz-poc-2024")
+client_bq = bigquery.Client(credentials = creds_bq, project = "xxxxx")
 
 
 def preProcess(msg):

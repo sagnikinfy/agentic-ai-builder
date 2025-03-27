@@ -10,8 +10,8 @@ safety_settings = {
     HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
 }
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 
 llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project, 
@@ -28,6 +28,7 @@ llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project,
                     
 from skills.reasoning_rag import RAG
 from typing import Annotated
+import re
 
 @tool
 def generate_solution_of_issues(issue_desc: Annotated[str, "Description of the issue"], case_numbers: Annotated[str, "comma separated similar case numbers"]) -> str:

@@ -12,12 +12,12 @@ from datetime import datetime
 import re
 from load_data import *
 
-password = "qwrfRGWFSJJqSKK"
-user = "default"
+password = ""
+user = ""
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret'
+app.config['SECRET_KEY'] = ''
 app.config['CELERY_BROKER_URL'] = f'redis://{user}:{password}@localhost:6379/0'
 app.config['CELERY_RESULT_BACKEND'] = f'redis://{user}:{password}@localhost:6379/0'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])

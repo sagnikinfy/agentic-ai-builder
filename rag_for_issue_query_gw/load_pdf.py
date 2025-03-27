@@ -1,8 +1,7 @@
 #from google.cloud import storage
 
-project = "apigee-infosys"
-#key_file = "apigee.json"
-bucket = "knowledge-base-gws"
+project = "xxxxx"
+bucket = "bucket"
 
 #creds = service_account.Credentials.from_service_account_file(key_file)
 #storage_client = storage.Client(credentials = creds, project = project)

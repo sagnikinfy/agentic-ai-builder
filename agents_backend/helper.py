@@ -4,9 +4,9 @@ from typing import List, Union
 import json
 import os
 
-project = "apigee-infosys"
-key_file = "apigee.json"
-bucket = "agentic-ai-infosys"
+project = "xxxxx"
+key_file = "xxx.json"
+bucket = "bucket"
 
 creds = service_account.Credentials.from_service_account_file(key_file)
 storage_client = storage.Client(credentials = creds, project = project)

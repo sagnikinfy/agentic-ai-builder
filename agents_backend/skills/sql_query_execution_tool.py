@@ -10,8 +10,8 @@ safety_settings = {
     HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
 }
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 
 llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project, 
@@ -28,6 +28,7 @@ llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project,
 from google.cloud import bigquery
 from google.oauth2 import service_account
 from typing import Literal, Annotated, Sequence
+import json
 
 @tool
 def sql_query_execution_tool(sql: Annotated[str, "Input SQL query related to user's question about various metrics trends regarding 'escalations', 'CES', 'TSR', 'specialization', 'shard', 'customer', 'team' etc"]) -> str:
@@ -43,11 +44,11 @@ def sql_query_execution_tool(sql: Annotated[str, "Input SQL query related to use
     
     """
     creds_bq = service_account.Credentials.from_service_account_file(
-                    "apigee.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                    "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                                   "https://www.googleapis.com/auth/drive",
                                   "https://www.googleapis.com/auth/bigquery",])
 
-    client = bigquery.Client(credentials = creds_bq, project = "apigee-infosys")
+    client = bigquery.Client(credentials = creds_bq, project = "xxxxx")
     
     
     try:

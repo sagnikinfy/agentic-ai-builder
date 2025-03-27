@@ -9,16 +9,16 @@ from bs4 import BeautifulSoup
 import re
 
 creds_bq = service_account.Credentials.from_service_account_file(
-                "topaz-poc-2024-new1.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
 
-client_bq = bigquery.Client(credentials = creds_bq, project = "topaz-poc-2024")
+client_bq = bigquery.Client(credentials = creds_bq, project = "xxxxx")
 
 
 def extract_data_from_cn(cn: int) -> pd.DataFrame:
     query = f"""
-        select * from `topaz-poc-2024.agents_casedata.gcp_case_feeds_closed` where case_number = @cn order by timestamp asc; 
+        select * from `table` where case_number = @cn order by timestamp asc; 
     """
     query_params=[
         bigquery.ScalarQueryParameter("cn", "INTEGER", cn),

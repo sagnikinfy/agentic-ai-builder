@@ -4,12 +4,12 @@ from typing import Union, Tuple
 
 def extract_data_from_cn(cn: int) -> Union[Tuple[str, str], str]:
     creds_bq_topaz = service_account.Credentials.from_service_account_file(
-                "topaz-poc-2024-new.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
-    client_topaz = bigquery.Client(credentials = creds_bq_topaz, project = "topaz-poc-2024")
+    client_topaz = bigquery.Client(credentials = creds_bq_topaz, project = "xxxxx")
     query = f"""
-        select case_subject, concat(case_subject,"\\n", description) as issue from `topaz-poc-2024.agents_casedata.gcp_case_metadata` where case_number = @cn limit 1; 
+        select case_subject, concat(case_subject,"\\n", description) as issue from `table` where case_number = @cn limit 1; 
     """
     query_params=[
         bigquery.ScalarQueryParameter("cn", "INTEGER", cn),

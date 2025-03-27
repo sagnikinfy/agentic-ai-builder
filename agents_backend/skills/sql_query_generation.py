@@ -10,8 +10,8 @@ safety_settings = {
     HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
 }
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 
 llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project, 
@@ -35,7 +35,7 @@ def get_prompt(inp):
     Below is the table and field definiton schema.
 
     -SCHEMA-
-    Table name = `apigee-infosys.metrics.metrics_trends`
+    Table name = `table`
 
     Field name - 'case_number'
     Type - INTEGER
@@ -139,7 +139,7 @@ def get_prompt(inp):
     Output : SELECT
     SAFE_DIVIDE((COUNTIF(esc.escalated_week = DATE('2024-10-27')) , COUNTIF(esc.case_created_week = DATE('2024-10-27'))) AS escalation_rate
     FROM
-    `apigee-infosys.metrics.metrics_trends` AS esc
+    `table` AS esc
     #################################################################
 
     Example 2:
@@ -149,7 +149,7 @@ def get_prompt(inp):
     esc.specialization
     SAFE_DIVIDE((COUNTIF(esc.escalated_week = DATE('2024-10-27')) , COUNTIF(esc.case_created_week = DATE('2024-10-27'))) AS escalation_rate
     FROM
-    `apigee-infosys.metrics.metrics_trends` AS esc
+    `table` AS esc
     Group By 1
     #################################################################
     
@@ -162,7 +162,7 @@ def get_prompt(inp):
       countif(c.ces is not null and c.survey_week = DATE('2024-10-27'))
     ) as ces_pct
     FROM
-    `apigee-infosys.metrics.metrics_trends` AS c
+    `table` AS c
     #################################################################
     
     Example 4:
@@ -175,7 +175,7 @@ def get_prompt(inp):
     countif(c.ces is not null and c.survey_week = DATE('2024-10-27'))
     ) as ces_rate
     FROM
-    `apigee-infosys.metrics.metrics_trends` AS c
+    `table` AS c
     group by 1
     #################################################################
 

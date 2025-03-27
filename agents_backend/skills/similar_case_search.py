@@ -13,9 +13,9 @@ import asyncio
 #import nest_asyncio
 #nest_asyncio.apply()
 
-sim_url_hybrid = "http://10.128.0.38:8000/sim"
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+sim_url_hybrid = "http://xxx"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 
 llm = ChatVertexAI(safety_settings=safety_settings, project = llm_project, 

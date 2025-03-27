@@ -28,16 +28,16 @@ logger = logging.getLogger("rag")
 loop = asyncio.new_event_loop()
 
 
-llm_keyfile = "infy_auto.json"
-llm_project = "upheld-caldron-411606"
+llm_keyfile = "xxx.json"
+llm_project = "xxxxx"
 creds_llm = service_account.Credentials.from_service_account_file(llm_keyfile)
 embd_model = VertexAIEmbeddings(credentials = creds_llm, project = llm_project)   
 vertexai.init(project=llm_project, location="us-central1", credentials=creds_llm)
 creds_bq = service_account.Credentials.from_service_account_file(
-                "apigee.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
+                "xxx.json",scopes=['https://www.googleapis.com/auth/cloud-platform',
                               "https://www.googleapis.com/auth/drive",
                               "https://www.googleapis.com/auth/bigquery",])
-client = storage.Client(credentials = creds_bq, project = "apigee-infosys")
+client = storage.Client(credentials = creds_bq, project = "xxxxx")
 
 
 def read_from_storage(bucket: str, file: str) -> Union[str, None]:
@@ -1867,8 +1867,8 @@ class RAG:
     key_string_value_json_storage_cls: Type[BaseKVStorage] = JsonKVStorage
     vector_db_storage_cls: Type[BaseVectorStorage] = NanoVectorDBStorage
     graph_storage_cls: Type[BaseGraphStorage] = NetworkXStorage
-    working_dir: str = "rca_rag"
-    storage_path: str = "adv_rag/53299511"
+    working_dir: str = "dir"
+    storage_path: str = "path"
     embedding_batch_num: int = 32
     entity_extract_max_gleaning: int = 1
     entity_summary_to_max_tokens: int = 500
